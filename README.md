@@ -1,12 +1,16 @@
 # wallaby-jspm-sample
-Wallaby.js with jspm sample.
-
+[Wallaby.js](http://wallabyjs.com/) with [jspm](http://jspm.io/) sample.
+## Install dependencies
+```sh
+npm install
+```
 ## Wallaby.js configuration
 ```javascript
 module.exports = function () {
 
   // Preprocessor to transpile imports/exports and possibly other ES6 elements
-  var babelPreprocessor = file => require('babel').transform(file.content, {sourceMap: true});
+  var babelPreprocessor = file => require('babel')
+                                    .transform(file.content, {sourceMap: true});
 
   return {
     files: [
@@ -27,9 +31,12 @@ module.exports = function () {
       'src/*.js': babelPreprocessor
     },
 
-    // telling wallaby to serve jspm_packages project folder as is from wallaby web server
+    // telling wallaby to serve jspm_packages project folder 
+    // as is from wallaby web server
     middleware: (app, express) => {
-      app.use('/jspm_packages', express.static(require('path').join(__dirname, 'jspm_packages')));
+      app.use('/jspm_packages', 
+              express.static(
+                 require('path').join(__dirname, 'jspm_packages')));
     },
 
     bootstrap: function (wallaby) {
