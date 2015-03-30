@@ -1,5 +1,5 @@
 # wallaby-jspm-sample
-[Wallaby.js](http://wallabyjs.com/) with [jspm](http://jspm.io/) sample.
+This repository demonstrates how to use [wallaby.js](http://wallabyjs.com/) with [jspm](http://jspm.io/). Please note, that because SystemJs evals loaded code and [PhantomJs doesn't support sourceURL](https://github.com/ariya/phantomjs/issues/11477), **wallaby.js doesn't display inline error messages and expectation failures in this sample**. The messages are still displayed in the tool window console and inside 'Show line test(s)' action window.
 ## Install dependencies
 ```sh
 npm install
