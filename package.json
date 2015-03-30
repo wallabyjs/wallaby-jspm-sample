@@ -1,0 +1,32 @@
+{
+  "name": "wallaby-jspm-sample",
+  "version": "1.0.0",
+  "description": "Wallaby.js with jspm sample",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wallabyjs/wallaby-jspm-sample.git"
+  },
+  "author": "Artem Govorov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wallabyjs/wallaby-jspm-sample/issues"
+  },
+  "homepage": "https://github.com/wallabyjs/wallaby-jspm-sample",
+  "jspm": {
+    "directories": {},
+    "dependencies": {
+      "lodash-node": "npm:lodash-node@^3.6.0"
+    },
+    "devDependencies": {
+      "babel": "npm:babel@^4.7.16",
+      "babel-runtime": "npm:babel-runtime@^4.7.16"
+    }
+  },
+  "devDependencies": {
+    "babel": "^4.7.16"
+  }
+}
