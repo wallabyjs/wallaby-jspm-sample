@@ -3,6 +3,7 @@ This repository demonstrates how to use [wallaby.js](http://wallabyjs.com/) with
 ## Install dependencies
 ```sh
 npm install
+jspm install
 ```
 ## Wallaby.js configuration
 ```javascript
@@ -31,10 +32,10 @@ module.exports = function () {
       'src/*.js': babelPreprocessor
     },
 
-    // telling wallaby to serve jspm_packages project folder 
+    // telling wallaby to serve jspm_packages project folder
     // as is from wallaby web server
     middleware: (app, express) => {
-      app.use('/jspm_packages', 
+      app.use('/jspm_packages',
               express.static(
                  require('path').join(__dirname, 'jspm_packages')));
     },
