@@ -31,7 +31,7 @@ module.exports = function () {
 
       Promise.all(promises).then(function () {
         wallaby.start();
-      });
+      }).catch(function (e) { setTimeout(function (){ throw e; }, 0); });
     }
   };
 };
