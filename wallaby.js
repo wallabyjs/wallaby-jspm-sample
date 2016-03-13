@@ -21,7 +21,7 @@ module.exports = function () {
       app.use('/jspm_packages', express.static(require('path').join(__dirname, 'jspm_packages')));
     },
 
-    bootstrap: function (wallaby) {
+    setup: function (wallaby) {
       wallaby.delayStart();
 
       var promises = [];
