@@ -1,6 +1,5 @@
-module.exports = function () {
+module.exports = function (wallaby) {
 
-  var babelPreprocessor = file => require('babel').transform(file.content, {sourceMap: true});
   return {
     files: [
       {pattern: 'jspm_packages/system.js', instrument: false},
@@ -12,9 +11,8 @@ module.exports = function () {
       {pattern: 'test/*Spec.js', load: false}
     ],
 
-    preprocessors: {
-      'test/*.js': babelPreprocessor,
-      'src/*.js': babelPreprocessor
+    compilers: {
+      '**/*.js': wallaby.compilers.babel()
     },
 
     middleware: (app, express) => {
