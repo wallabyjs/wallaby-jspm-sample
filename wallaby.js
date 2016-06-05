@@ -3,7 +3,7 @@ module.exports = function (wallaby) {
   return {
     files: [
       {pattern: 'jspm_packages/system.js', instrument: false},
-      {pattern: 'config.js', instrument: false},
+      {pattern: 'jspm.config.js', instrument: false},
 
       {pattern: 'src/*.js', load: false}
     ],
@@ -12,24 +12,26 @@ module.exports = function (wallaby) {
     ],
 
     compilers: {
-      '**/*.js': wallaby.compilers.babel()
+      '**/*.js': wallaby.compilers.babel({
+        presets: [ 'es2015' ]
+      })
     },
 
     middleware: (app, express) => {
-      app.use('/jspm_packages', express.static(require('path').join(__dirname, 'jspm_packages')));
-    },
+    app.use('/jspm_packages', express.static(require('path').join(__dirname, 'jspm_packages')));
+  },
 
-    setup: function (wallaby) {
-      wallaby.delayStart();
+  setup: function (wallaby) {
+    wallaby.delayStart();
 
-      var promises = [];
-      for (var i = 0, len = wallaby.tests.length; i < len; i++) {
-        promises.push(System['import'](wallaby.tests[i].replace(/\.js$/, '')));
-      }
-
-      Promise.all(promises).then(function () {
-        wallaby.start();
-      }).catch(function (e) { setTimeout(function (){ throw e; }, 0); });
+    var promises = [];
+    for (var i = 0, len = wallaby.tests.length; i < len; i++) {
+      promises.push(System['import'](wallaby.tests[i]));
     }
-  };
+
+    Promise.all(promises).then(function () {
+      wallaby.start();
+    }).catch(function (e) { setTimeout(function (){ throw e; }, 0); });
+  }
+};
 };
