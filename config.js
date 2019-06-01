@@ -1,7 +1,7 @@
 System.config({
   defaultJSExtensions: true,
   transpiler: "traceur",
-    paths: {
+  paths: {
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
@@ -10,6 +10,7 @@ System.config({
     "babel": "npm:babel@4.7.16",
     "babel-runtime": "npm:babel-runtime@4.7.16",
     "core-js": "npm:core-js@1.2.6",
+    "fetch": "github:github/fetch@3.0.0",
     "lodash-node": "npm:lodash-node@3.10.2",
     "traceur": "github:jmcriffey/bower-traceur@0.0.93",
     "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.93",

@@ -5,17 +5,11 @@ module.exports = function (wallaby) {
       {pattern: 'jspm_packages/system.js', instrument: false},
       {pattern: 'config.js', instrument: false},
 
-      {pattern: 'src/**/*.js', load: false}
+      {pattern: 'src/**/*.ts', load: false}
     ],
     tests: [
-      {pattern: 'test/**/*Spec.js', load: false}
+      {pattern: 'test/**/*Spec.ts', load: false}
     ],
-
-    compilers: {
-      '**/*.js': wallaby.compilers.babel({
-        presets: ['es2015']
-      })
-    },
 
     env: {
       kind: 'electron'
